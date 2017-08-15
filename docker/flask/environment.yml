@@ -24,9 +24,11 @@ dependencies:
   - flask-login==0.4.0
   - flask-pymongo==0.5.1
   - flask-restful==0.3.6
+  - marshmallow==2.13.5
   - pymongo==3.5.0
   - python-dateutil==2.6.1
   - pytz==2017.2
   - six==1.10.0
-prefix: /opt/conda/miniconda3/envs/proxy
+  - webargs==1.8.1
+prefix: /home/lenovo/miniconda3/envs/proxy
 

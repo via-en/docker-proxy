@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
- RUN apt-get update -y && apt-get install -y wget nano curl ca-certificates build-essential bzip2 libsm6
+ RUN apt-get update -y && apt-get install -y wget nano curl ca-certificates build-essential bzip2 libsm6 && apt-get clean
  RUN mkdir /usr/src/log
  ADD environment.yml /
  ADD utils/entrypoint.py /
@@ -12,8 +12,8 @@ FROM ubuntu:16.04
  ENV PATH $CONDA_DIR/bin:$PATH
  RUN conda env create -f environment.yml
  RUN echo $PATH
- RUN conda env list && conda update conda -y && /bin/bash -c "source activate $MY_CONDA"
- #RUN source activate $MY_CONDA
+ RUN conda env list && conda update conda -y
+ RUN source activate $MY_CONDA
  RUN apt-get install -y uwsgi-plugin-python3
  RUN mkdir /var/log/uwsgi
  RUN pip install uwsgi

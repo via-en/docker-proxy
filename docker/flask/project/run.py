@@ -22,8 +22,9 @@ app.config.update({
 })
 app.mongo = PyMongo(app, config_prefix='MONGO')
 
-from proxy.routes import proxy
+from proxy.routes import proxy, proxy_list
 app.register_blueprint(proxy)
+app.register_blueprint(proxy_list)
 
 
 if __name__ == '__main__':
