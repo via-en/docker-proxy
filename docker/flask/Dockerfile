@@ -10,10 +10,10 @@ FROM ubuntu:16.04
       rm Miniconda3-3.9.1-Linux-x86_64.sh && \
       $CONDA_DIR/bin/conda install --yes conda==4.3.24
  ENV PATH $CONDA_DIR/bin:$PATH
+ #ENV PATH $CONDA_DIR/miniconda3/bin:$PATH
  RUN conda env create -f environment.yml
- RUN echo $PATH
  RUN conda env list && conda update conda -y
- RUN source activate $MY_CONDA
+ RUN /bin/bash -c "source activate $MY_CONDA"
  RUN apt-get install -y uwsgi-plugin-python3
  RUN mkdir /var/log/uwsgi
  RUN pip install uwsgi
